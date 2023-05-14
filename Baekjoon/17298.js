@@ -1,5 +1,3 @@
-///dev/stdin
-//"example.txt"
 const fs = require("fs");
 //백준 제출 할 때 주석 제거
 // const readFileSyncAddress = "./dev/stdin";

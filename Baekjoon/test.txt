@@ -1,3 +1,11 @@
+const fs = require("fs");
+//백준 제출 할 때 주석 제거
+// const readFileSyncAddress = "./dev/stdin";
+// VSC 테스트 할때 주석 제거
+const readFileSyncAddress = "example.txt";
+//인풋 받기
+let input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
+
 
  - 소숫점
    - str.toFixed(2) : 소숫점 둘째자리까지 출력
@@ -10,5 +18,20 @@
  - Array
    - Array(10).fill(-1) : -1인 10개 배열
 
+- string.splice(2,0) : 2인덱스~0까지 삭제
+
  - 정규식
    - [a-zA-Z].test() -> 정규식 맞으면 true / 틀리면 false
+
+
+ - 유클리드 호제법
+   - 두수의 곱 / 최대공약수 -> 최소공배수
+   - while (a % b !== 0){ let r = a % b if(r !== 0) { a = b; r = b } }
+
+ - 에라토스테네스의 체(소수)
+  - for(let i=2; i<=Math.sqrt(m); i++){
+        if(arr[i])
+            for(let j = i*i; j<=m; j+=i){
+                arr[j] = false;
+            }
+    }
