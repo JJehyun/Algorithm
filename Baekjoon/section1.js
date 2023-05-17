@@ -118,3 +118,36 @@ function ToUpperCase2(str){
     return answer
 }
 console.log(ToUpperCase2("AsdSsdasEssdS"))
+
+//대소문자 변환
+function Capital(s){
+    let answer = "";
+    for (let x of s){
+        if(x === x.toUpperCase) answer+=x.toUpperCase()
+        else answer += x.toLowerCase()
+    }
+    return answer
+}
+console.log(Capital("saASDs"))
+
+//가운데 문자 출력
+function Middle(str){
+    let answer;
+    let mid = Math.floor(str.length);
+    if(mid % 2 === 0) answer = str.substring(mid-1,2)
+    else answer = str.substring(mid,1)
+    return answer;
+}
+console.log(Middle("ABCDESD"))
+
+//중복 단어 제거
+function DuplicateWords(arr) {
+    let answer;
+    answer = arr.filter((element,index)=>
+        // index와 indexOf의 값이 일치하는 것만 true
+        // true인 element만 리턴
+        arr.indexOf(arr[i]) === index
+    )
+    return answer;
+}
+console.log(["good","time","good","student"],"중복 단어 제거")

@@ -26,6 +26,9 @@ let input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
   - Math.floor() : 내림
   - Math.round() : 반올림
 
+- 중복된 문자 찾기
+    - str.indexOf('k') : return -> 위치를 찾아줌
+    - str.indexOf('k',1) : return -> 1번 인덱스 이후로 부터 찾음
 
 - Map
     - Map.set(key,value) : 값 변경
@@ -37,6 +40,7 @@ let input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
 
 - string.splice(2,1) : 2인덱스~1개 삭제 (3번째거 삭제)
     - string.splice(2,1,'t') : 2인덱스~1개 삭제 후 't'문자열 넣음
+    - string.substring(startIndex,endIndex) : startIndex ~ endIndex까지 삭제하고 return
 
 - 정규식
     - [a-zA-Z].test() -> 정규식 맞으면 true / 틀리면 false
@@ -54,3 +58,8 @@ let input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
             }
     }
 
+- 중복된 문자 없애기
+    - for(let i = 0; i < 문자열.length; i++){
+        // [문자열이 처음 나온 위치,인덱스]와 현재 인덱스,위치가 다르면 중복된 문자열이 있다.
+        if(문자열.indexOf(문자열[i]) === i) answer+=문자열[i]
+    }
