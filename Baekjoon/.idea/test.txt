@@ -21,6 +21,10 @@ let input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
 - 소숫점
    - str.toFixed(2) : 소숫점 둘째자리까지 출력
 
+- 숫자, 문자 판별
+    - isNaN("abc") // true
+    - isNaN(1234)  // false
+
 - Math
   - Math.ceil() : 올림
   - Math.floor() : 내림
@@ -45,6 +49,8 @@ let input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
 - 정규식
     - [a-zA-Z].test() -> 정규식 맞으면 true / 틀리면 false
     - string.replace(/A/g,"#");
+    - string.replace(/[^a-z]/g,'');
+        - a-z가 아닌 것을 빈 문자열로 치환
 
 - 유클리드 호제법
     - 두수의 곱 / 최대공약수 -> 최소공배수
@@ -62,4 +68,39 @@ let input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
     - for(let i = 0; i < 문자열.length; i++){
         // [문자열이 처음 나온 위치,인덱스]와 현재 인덱스,위치가 다르면 중복된 문자열이 있다.
         if(문자열.indexOf(문자열[i]) === i) answer+=문자열[i]
+    }
+
+
+- 격자판 합의 최대값
+    for(let i = 0; i < arr.length; i++){
+        sum1=sum2=0;
+        for (let j=0;j<arr.length;j++){
+            // i를 고정하고 J값을 변경 -> arr[0][0] , arr[0][1] , arr[0][2] ... 1행의 합
+            sum1+=arr[i][j];
+            // j를 변경, i를 고정 -> arr[0][0] , arr[1][0] , arr[2][0] , arr[3][0] ... 1열의 합
+            sum2+=arr[j][i];
+        }
+        //행,열의 최대값을 알아낵내기
+        answer = Math.max(answer,sum1,sum2)
+    }
+
+- 격자판 대각선 합의 최대값
+    // 대각선의 합 구하기
+    for (let i = 0; i < arr.length; i++){
+        //우하향 대각선의 합
+        sum1+=arr[i][i]
+        //우사향 대각선의 합
+        sum2=arr[i][arr.length - i - 1]
+    }
+
+- 회문 문자열
+    function palindromeString(arr){
+        //문자열 전체길이의 몫/2만큼만 비교하면 됨
+        let answer = "YES";
+        arr=arr.toLowerCase();
+        for(let i = 0; i < Math.floor(arr.length); i++){
+            // arr[0] -- arr[3]비교  <---->  arr[1] -- arr[2]비교
+            if(arr[i] !== arr[arr.length -i -1]) return "NO"
+        }
+        return answer
     }
