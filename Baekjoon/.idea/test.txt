@@ -104,3 +104,6 @@ let input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
         }
         return answer
     }
+
+- 각자리 합 구하기
+    let sum = value.toString.split('').reduce((a,b)=>a+Number(b),0);

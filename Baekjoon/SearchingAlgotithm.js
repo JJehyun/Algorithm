@@ -41,3 +41,55 @@ function extractNumbers(str){
 }
 
 console.log(extractNumbers("asda123azsd1"))
+
+// 떨어진 문자의 거리 구하기
+// for문 두바퀴
+function DistanceFallenByACharacter(str,core){
+    let answer = [];
+    let p = 1000;
+    //문자열 배열 만큼 배열을 순회 , 왼쪽에서 부터 떨어진 거리 구함
+    for(let x of str){
+        if(x === core) {
+            //떨어진 거리0, core와 현재 글자가 같을때
+            p = 0;
+            answer.push(p)
+        }else{
+            //왼쪽에서부터 떨어진 거리
+            p++
+            answer.push(p)
+        }
+    }
+    p=1000;
+    //오른쪽으로 부터 떨어진 거리 구하기
+    for (let i = str.length; i>=0; i--){
+        if(str[i] === core){
+            p = 0;
+        }else{
+            p++
+            answer[i] = Math.min(answer[i],p);
+        }
+    }
+    return "asd"
+}
+console.log(DistanceFallenByACharacter("asdmkasndasd" , 'e'));
+
+//문자열 압축
+function StringCompression(str){
+    let answer = "";
+    let count = 1;
+    //맨 마지막 인덱스와 비교할 값 추가
+    str=str+" ";
+    for (let i = 0; i < str.length - 1; i++){
+        // 다음 인덱스와 값이 같다면 count++
+        if(str[i] === str[i+1]) count++
+        else {
+            //현재 글자 push
+            answer += str[i];
+            //몇번 반복 됐는지 count push
+            if(count>1)answer += count;
+            count = 1;
+        }
+    }
+    return answer
+}
+console.log(StringCompression("aasssasdsssdddww"))
