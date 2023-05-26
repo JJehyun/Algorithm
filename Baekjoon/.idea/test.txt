@@ -39,6 +39,11 @@ let input = fs.readFileSync(readFileSyncAddress).toString().trim().split("\n");
     - Map.get(key) : 값 가져오기
     - Array.form(Map.values()) : 배열로 변환
 
+- Set : 중복이 없는 배열,자료구조
+    - new Set();으로 생성
+    - tmp.add로 자료구조에 값 추가
+    - Array.from(tmp)로 배열로 변환
+
 - Array
     - Array(10).fill(-1) : -1인 10개 배열
 
